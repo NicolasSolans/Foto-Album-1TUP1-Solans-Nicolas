@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Portal de Fotos</h1>
+<button class="btn btn-primary" hx-get="{{ url_for('photo_bp.new_photo_form') }}" hx-target="#modal">Administrar</button>
+
+<div id="modal"></div>
+
+<div id="user-list">
+    {% for photo in photos %}
+        {% include "photo_item.html" %}
+    {% endfor %}
+</div>
+
+{% endblock %}
