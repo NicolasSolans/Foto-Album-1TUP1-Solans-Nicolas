@@ -1,12 +1,12 @@
 <div id="photo-{{ photo.id }}" class="card my-2" style="display: flex;align-items: center;">
     <div class="card-body" style="align-items: center;">
-        <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
-        <p class="card-text">{{ user.email }}</p>
-        <p class="card-text">{{ wikidata }}</p>
-        <img src="{{ photo.image_url }}" alt="Photo Image" height="200dvh">
+        <h5 class="card-title">{{ photo.title }}</h5>
+        <p class="card-text">{{ photo.description }}</p>
+        <img src="{{ photo.image }}" alt="Photo Image" height="200dvh">
+        <p class="card-text">{{wikidata}}</p>
         <div style="margin-top: 1%; display:block; align-items: center;">
             <button class="btn btn-warning" hx-get="{{ url_for('photo_bp.edit_photo_form', photo_id=photo.id) }}" hx-target="#modal">Edit</button>
-            <button class="btn btn-danger" hx-delete="{{ url_for('photo_bp.delete_photo', photo_id=photo_id) }}" hx-target="#modal">Delete</button>
+            <button class="btn btn-danger" hx-delete="{{ url_for('photo_bp.delete_photo', photo_id=photo.id) }}" hx-target="#modal">Delete</button>
         </div>
     </div>
 </div>

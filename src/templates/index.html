@@ -6,10 +6,10 @@
 
 <div id="modal"></div>
 
-<div id="user-list">
-    <!-- {% for photo in photos %}
-        {% include "photo_form.html" %}
-    {% endfor %} -->
+<div id="photo-list">
+    {% for photo in photos %}
+        {% include "base.html" %}
+    {% endfor %}
 </div>
 
 {% endblock %}

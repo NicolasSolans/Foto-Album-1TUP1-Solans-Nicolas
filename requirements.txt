@@ -3,3 +3,4 @@ flask-migrate
 SQLAlchemy
 pydantic
 pydantic[email]
+wikipedia
