@@ -36,3 +36,23 @@ def create_photo() -> str:
     db.session.commit()
 
     return render_template('base.html', photo=new_photo)
+
+
+#Editar fotos
+@photo_bp.route('/photos/<int:photo_id>/edit')
+def edit_photo_form(photo_id: int) -> str:
+    photo: Photo = Photo.query.get_or_404(photo_id)
+    return render_template('base.html', photo=photo)
+
+
+@photo_bp.route('/photo/<int:photo_id>', methods=['DELTE'])
+def delete_photo(photo_id: int) -> str:
+    photo: Photo = Photo.query.get_or_404(photo_id)
+
+    db.session.delete(photo)
+    db.session.commit()
+
+    photos: List[Tuple[Any]] = Photo.query.all()
+
+    return render_template('index.html', photos=photos)
+    
