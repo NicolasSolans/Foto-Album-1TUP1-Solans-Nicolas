@@ -3,7 +3,6 @@ from . import db
 from .models import Photo
 from .schemas import PhotoCreateSchema
 from typing import List, Tuple, Any, Dict
-#import wikipedia
 
 photo_bp = Blueprint('photo_bp', __name__)
 
@@ -35,11 +34,6 @@ def create_photo() -> str:
     
     db.session.add(new_photo)
     db.session.commit()
-
-    # try:
-    #     wikidata = str(wikipedia.summary(f"{new_photo.title} {new_photo.description}", sentences=1))
-    # except:
-    #     wikidata = "Informacion no encontrada"
 
     return render_template('base.html', photo=new_photo)
 
